@@ -1,0 +1,27 @@
+{
+  "name": "first-project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/sahilkamble11/NODE-JS#readme",
+  "bugs": {
+    "url": "https://github.com/sahilkamble11/NODE-JS/issues"
+  },
+  "scripts": {
+  "start": "node index.js"
+}
+,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahilkamble11/NODE-JS.git"
+  },
+  "license": "ISC",
+  "author": "sahil kamble",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
