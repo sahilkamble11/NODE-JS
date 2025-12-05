@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Listener</title>
+    </head>
+    <body>
+       
+       <button id="btn" >Button</button> 
+       <p id="para"></p>
+       <script>
+
+        var btn=document.getElementById("btn");
+        var para=document.getElementById("para");
+
+        btn.addEventListener("mouseover",over);
+        btn.addEventListener("mouseout",out);
+        btn.addEventListener("mousedown",down);
+        btn.addEventListener("mouseup",up);
+        btn.addEventListener("mouseenter",enter);
+        btn.addEventListener("mouseleave",leave);
+
+        function over(){
+        para.innerHTML="Mouse Over";
+        }
+        function out(){
+            para.innerHTML="Mouse Out";
+        }
+         function down(){
+            para.innerHTML="Mouse Down";
+        }
+         function enter(){
+            para.innerHTML="Mouse Enter";
+        }
+         function leave(){
+            para.innerHTML="Mouse Leave";
+        }
+         function up(){
+            para.innerHTML="Mouse Up";
+        }
+
+       </script>
+    </body>
+</html>
