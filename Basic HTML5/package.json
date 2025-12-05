@@ -1,0 +1,12 @@
+{
+  "name": "basic-html5",
+  "version": "1.0.0",
+  "description": "Basic HTML5 features",
+  "license": "ISC",
+  "author": "Sahil Kamble",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

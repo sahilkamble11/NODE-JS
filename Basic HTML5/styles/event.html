@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TransFlower</title>
+    </head>
+    <body>
+        <button id="btn" onclick="onPress()">Press me</button>
+        <button id="revBtn"  onclick="toRev()">Undo</button>
+        <div id="div">Press button for changing me!!</div>
+        <script>
+            var button = document.getElementById("btn");
+            var div=document.getElementById("div");
+            var button = document.getElementById("revBtn");
+
+            function onPress(){
+                
+                div.innerHTML="Button is Pressed";
+            }
+            function toRev(){
+                div.innerHTML="Press button for changing me!!";
+            }
+        </script>
+    </body>
+</html>
