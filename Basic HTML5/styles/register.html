@@ -7,7 +7,7 @@
         <h1>Transflower</h1>
         <input type="text" id="txt" value=""><br><br>
         <input type="password" id="pass"><br><br>
-        <button id="btn" onclick="onSetData()">Login</button><br><br>
+        <button id="btn" onclick="onRegister()">Register</button><br><br>
         <div id="div" value="Msg will be displayed here"></div><br><br>
 
         <script>
@@ -16,20 +16,21 @@
             var div=document.getElementById("div")
             var pass=document.getElementById("pass");
 
-            function onSetData(){
+            function onRegister(){
             if(typeof(Storage)!=="undefined"){
-                var username=txtbox.value;
-                var password=pass.value;
                 
-                var strvalid=localStorage.getItem("validUser")
-                var validUser=JSON.parse(strvalid);
+                var nm=txtbox.value;
+                var pw=pass.value;
+                var validUser={
+                    "username":nm,
+                    "password":pw
+                }
+                localStorage.setItem("validUser",JSON.stringify(validUser));
 
-                if(validUser.username==username&&validUser.password==password){
-                div.innerHTML="Sucessfully Logged In";
-            }
-            else{
-                div.innerHTML="Invalid User/Information";
-            }
+                // localStorage.setItem("person",nm);
+                // localStorage.setItem("password",pw);
+
+                div.innerHTML="Sucessfully Registered";
             }
             else{
                 div.innerHTML="Sorry, your browser doesn't support HTML5 feature ";
