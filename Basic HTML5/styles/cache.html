@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Storage HTML5</title>
+    </head>
+    <body>
+        <h1>Transflower</h1>
+        <input type="text" id="txt" value="">
+        <button id="btn" onclick="onSetData()">Set Data</button>
+        <div id="div" value="Msg will be displayed here"></div>
+
+        <script>
+            var txtbox = document.getElementById("txt");
+            var btn= document.getElementById("btn");
+            var div=document.getElementById("div")
+
+            function onSetData(){
+            if(typeof(Storage)!=="undefined"){
+                var nm=txtbox.value;
+                localStorage.setItem("person",nm)
+            }
+            else{
+                div.innerHTML="Sorry, your browser doesn't support HTML5 feature ";
+            }
+        }
+        </script>
+
+    </body>
+</html>
