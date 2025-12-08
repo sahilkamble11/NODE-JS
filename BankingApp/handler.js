@@ -8,6 +8,6 @@ exports.payServiceTax=function(){
     console.log("18% Income Tax Applied againts account");
 }
 
-exports.blockAccont=function(){
+exports.blockAccount=function(){
     console.log("The account has been blocked temporrily");
 }

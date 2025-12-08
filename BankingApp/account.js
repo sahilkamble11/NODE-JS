@@ -1,8 +1,11 @@
 
-var handler=require("./handler")
+var handler=require("./handler"); //custom mudule
+var events=require("events"); //inbuilt module
 
 var Account=function(amount){
     var balance=amount;
+
+    var emitter=new events.EventEmitter();
     //Inner function
     var getBalance=function(){
         return balance;
@@ -10,12 +13,13 @@ var Account=function(amount){
 
     var monitor=function(){
         if(balance<500){
-            handler.blockAccont();
+            emitter.emit("underBalance");
+           // handler.blockAccont();
             //console.log("Insufficient Funds!!")
         }
         else if(balance>250000){
-
-            handler.payIncomeTax();
+            emitter.emit("overBalance")
+           // handler.payIncomeTax();
             //console.log("Over the Limit, Tax can be Applied")
         }
         else{
@@ -35,12 +39,15 @@ var Account=function(amount){
     return{
         showBalance:getBalance,
         debit:withdraw,
-        credit:deposit
+        credit:deposit,
+        emitter: emitter 
     }
 
    }
     var acct123=new Account(45000);
 
+    acct123.emitter.on("underBalance",handler.blockAccount);
+    acct123.emitter.on("overBalance",handler.payIncomeTax);
     var data=acct123.showBalance();
     console.log("Balance= "+ data);
 
