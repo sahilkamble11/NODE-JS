@@ -1,3 +1,6 @@
+
+var handler=require("./handler")
+
 var Account=function(amount){
     var balance=amount;
     //Inner function
@@ -7,10 +10,13 @@ var Account=function(amount){
 
     var monitor=function(){
         if(balance<500){
-            console.log("Insufficient Funds!!")
+            handler.blockAccont();
+            //console.log("Insufficient Funds!!")
         }
         else if(balance>250000){
-            console.log("Over the Limit, Tax can be Applied")
+
+            handler.payIncomeTax();
+            //console.log("Over the Limit, Tax can be Applied")
         }
         else{
             console.log("Transaction complete!!")
