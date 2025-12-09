@@ -56,8 +56,8 @@ var Account=function(amount){
     var data=acct123.showBalance();
     console.log("Balance= "+ data);
 
-    // var amount=20000;
-    // acct123.debit(amount);
-    // var data=acct123.showBalance();
-    // console.log("Balance= "+ data);
+    var amount=20000;
+    acct123.debit(amount);
+    var data=acct123.showBalance();
+    console.log("Balance= "+ data);
 
