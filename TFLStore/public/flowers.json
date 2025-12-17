@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Marigold",
+    "description": "wedding flower",
+    "unitprice": 12,
+    "quantity": 5000,
+    "likes": 120
+  },
+  {
+    "id": 2,
+    "name": "Jasmine",
+    "description": "valentine flower",
+    "unitprice": 50,
+    "quantity": 400,
+    "likes": 250
+  },
+  {
+    "id": 3,
+    "name": "Lily",
+    "description": "worship flower",
+    "unitprice": 10,
+    "quantity": 9800,
+    "likes": 180
+  },
+  {
+    "id": 4,
+    "name": "Rose",
+    "description": "delicate flower",
+    "unitprice": 20,
+    "quantity": 1400,
+    "likes": 500
+  }
+]

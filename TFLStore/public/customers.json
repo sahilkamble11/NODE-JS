@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "email": "amit.sharma@example.com",
+    "phone": "9876543210",
+    "city": "Mumbai",
+    "totalOrders": 15,
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Priya Verma",
+    "email": "priya.verma@example.com",
+    "phone": "9123456780",
+    "city": "Pune",
+    "totalOrders": 8,
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "name": "Rahul Patil",
+    "email": "rahul.patil@example.com",
+    "phone": "9988776655",
+    "city": "Nagpur",
+    "totalOrders": 3,
+    "isActive": false
+  },
+  {
+    "id": 4,
+    "name": "Sneha Kulkarni",
+    "email": "sneha.k@example.com",
+    "phone": "9011223344",
+    "city": "Nashik",
+    "totalOrders": 22,
+    "isActive": true
+  }
+]
