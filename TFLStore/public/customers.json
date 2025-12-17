@@ -34,5 +34,14 @@
     "city": "Nashik",
     "totalOrders": 22,
     "isActive": true
+  },
+   {
+    "id": 5,
+    "name": "Nirjala Naik",
+    "email": "nirjala@example.com",
+    "phone": "9011223344",
+    "city": "Kolhapur",
+    "totalOrders": 22,
+    "isActive": true
   }
 ]

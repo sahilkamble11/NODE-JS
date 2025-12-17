@@ -2,6 +2,7 @@ var express=require('express');
 var path=require('path');
 const flowers = require("./public/flowers.json");
 const customers= require("./public/customers.json");
+const credentials= require("./public/credentials.json");
 
 var app=express();
 
@@ -35,6 +36,24 @@ app.get("/api/customers/:id",function(request,response){
     let id=request.params.id;
     let customer=customers.find(x=>x.id==id);
     response.json(customer);
+});
+
+app.post("/api/login",(request,response)=>{
+    const username=request.body.username;
+    const password=request.body.password;
+    let user=credentials.find(x=>x.username===username && x.password===password);
+    var message="Invalid User"
+    if(user){
+        message="Valid User"
+    }
+    console.log(request.body);
+    response.send(message);
+});
+
+app.post("/api/register",(request,response)=>{
+    var newCustomer=request.body;
+    customers.push(newCustomer);
+    response.send("Customer Registered Sucessfully!! ")
 });
 
 app.listen(8787,() =>{
