@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flower List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Todays Fresh Flowers available for sale...</h1>
+<hr/>
+
+<ol id="flowerslist">
+</ol>
+<button id="btn" type="submit">Button</button>
+<p id="para"></p>
+<script>
+    $(document).ready(function(){
+        console.log("Document is ready!");
+        $("button").click(function(){
+            console.log("Button is Clicked !!");
+            var p=document.getElementById("para");
+
+            $.get("/api/flowers",function(data,status){
+                for(var i=0;i<data.length;i++){
+                   // console.log(data[i].name);
+                    p.innerHTML=JSON.stringify(data[i]);
+                }
+                // console.log("Data: " +JSON.stringify(data) + "\nStatus: " + status)
+            });
+        })
+    });
+
+
+    // // Handling asynchronous request using async function
+    // async function getFlowersFromTFLStore(){
+    //     // fetch data from server
+    //     var flowersUrl = "http://localhost:8787/api/flowers";
+    //     // any function you invoke outside
+    //     // is going to be by nature asynchronous
+    //     try{
+    //         let response = await fetch(flowersUrl);
+    //         console.log(response.body);
+    //     }
+    //     catch(err){
+    //         console.log(err);
+    //     }
+    // };
+
+    // // function is invoked at this place
+    // getFlowersFromTFLStore();
+</script>
+
+</body>
+</html>
