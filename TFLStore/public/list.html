@@ -23,7 +23,8 @@
             $.get("/api/flowers",function(data,status){
                 for(var i=0;i<data.length;i++){
                    // console.log(data[i].name);
-                    p.innerHTML=JSON.stringify(data[i]);
+                   $("#para").append(data[i].name+"<br>")
+                    //p.innerHTML+=(data[i].name + "<br>");
                 }
                 // console.log("Data: " +JSON.stringify(data) + "\nStatus: " + status)
             });
