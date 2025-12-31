@@ -72,6 +72,7 @@ app.get('/getAllUsers',(req,res)=>{
     });
 });
 
+
 //UPDATE
 app.put('/updateRecord/:id',(req,res)=>{
     const id=req.params.id;
