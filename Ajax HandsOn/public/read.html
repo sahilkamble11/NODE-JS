@@ -55,7 +55,10 @@
                     });
                     $("#userTable").html(table);
                  },
-                
+                 error:function(err){
+                            console.error(err);
+                            alert("Error fetching users");
+                        }
             });
         });
     });
