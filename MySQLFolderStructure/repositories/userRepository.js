@@ -1,14 +1,21 @@
-// repositories/userRepository.js
-const db = require("../config/db");
-const User = require("../models/userModel");
+const connection = require('../config/db');
 
-exports.findAll = (callback) => {
-  const sql = "SELECT * FROM users";
+exports.insertUser = (name, contact, result) => {
+    const sql = "INSERT INTO users(name,contact) VALUES(?,?)";
+    connection.query(sql, [name, contact], result);
+};
 
-  db.query(sql, (err, results) => {
-    if (err) return callback(err);
+exports.deleteUser = (id, result) => {
+    const sql = "DELETE FROM users WHERE id=?";
+    connection.query(sql, [id], result);
+};
 
-    const users = results.map(u => new User(u.id, u.name, u.contact));
-    callback(null, users);
-  });
+exports.getUsers = (result) => {
+    const sql = "SELECT * FROM users";
+    connection.query(sql, result);
+};
+
+exports.updateUser = (id, name, contact, result) => {
+    const sql = "UPDATE users SET name=?, contact=? WHERE id=?";
+    connection.query(sql, [name, contact, id], result);
 };
