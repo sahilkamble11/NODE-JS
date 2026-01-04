@@ -26,3 +26,16 @@ exports.updateUser = (id, name, contact, result) => {
     const sql = "call spupdateUsers(?,?,?)";
     connection.query(sql, [id,name, contact], result);
 };
+
+exports.specificUser = (id,result)=>{
+    const sql="call spspecificUser(?)";
+    connection.query(sql,[id],(err,res)=>{
+        if(err){
+            result(err,null);
+        }
+        else{
+            result(null,res[0]);
+        }
+    });
+};
+

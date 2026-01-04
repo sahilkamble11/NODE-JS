@@ -28,41 +28,13 @@
                 <tbody id="userTable">
                 </tbody>
             </table>
-             <button type="submit" class="btn btn-success" id="showUsers">Show Users</button><br><br>
+            <a href="readallusers.html" id="showAllUsers" class="btn btn-success">Show All Users</a><br><br>
+            <a href="readspecificuser.html" id="oneUsers" class="btn btn-success">Show Specific User</a><br><br>
              <a href="index.html" class="btn btn-outline-secondary">Back</a>
         </div>
     </div>
 </div>
 
-
-<script>
-    $(document).ready(()=>{
-        $("#showUsers").click(function(e){
-            e.preventDefault();
-            $.ajax({
-                 url: `/getAllUsers`,
-                 method: "GET",
-                 success: function(users){
-                    let table=" ";
-                    users.forEach(user => {
-                        table+=`
-                        <tr>
-                            <td>${user.id}</td>
-                            <td>${user.name}</td>
-                            <td>${user.contact}</td>
-                        <tr>
-                        `;
-                    });
-                    $("#userTable").html(table);
-                 },
-                 error:function(err){
-                            console.error(err);
-                            alert("Error fetching users");
-                        }
-            });
-        });
-    });
-</script>
 
 </body>
 </html>

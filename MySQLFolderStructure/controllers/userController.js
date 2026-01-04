@@ -45,3 +45,16 @@ exports.updateUser = (req, res) => {
         console.log("Record updated...");
     });
 };
+
+exports.specificUser = (req, res) => {
+    const id = req.params.id;
+
+    userService.oneUser(id, (err, result) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        res.json(result[0]);
+        console.log("Record Displayed...");
+    });
+};
