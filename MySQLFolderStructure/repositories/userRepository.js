@@ -1,18 +1,20 @@
-const connection = require('../config/db');
+module.exports=function userRepository(db)
+{
+    return{
 
-exports.insertUser = (name, contact, result) => {
+insertUser :(name, contact, result)=>  {
     const sql = "call spinsertUser(?,?)";
-    connection.query(sql, [name, contact], result);
-};
+    db.query(sql, [name, contact], result);
+},
 
-exports.deleteUser = (id, result) => {
+deleteUser : (id, result) => {
     const sql = "call spdeleteUser(?)";
-    connection.query(sql, [id], result);
-};
+    db.query(sql, [id], result);
+},
 
-exports.getUsers = (result) => {
+getUsers : (result)=>{
      
-    connection.query('CALL spgetUsers()',(err, res)=>{
+    db.query('CALL spgetUsers()',(err, res)=>{
         if(err){
             result(err,null);
         }
@@ -20,16 +22,16 @@ exports.getUsers = (result) => {
             result(null,res[0]);
         }
     });
-};
+},
 
-exports.updateUser = (id, name, contact, result) => {
+updateUser :(id, name, contact, result)=>{
     const sql = "call spupdateUsers(?,?,?)";
-    connection.query(sql, [id,name, contact], result);
-};
+    db.query(sql, [id,name, contact], result);
+},
 
-exports.specificUser = (id,result)=>{
+specificUser :(id,result)=>{
     const sql="call spspecificUser(?)";
-    connection.query(sql,[id],(err,res)=>{
+    db.query(sql,[id],(err,res)=>{
         if(err){
             result(err,null);
         }
@@ -37,11 +39,11 @@ exports.specificUser = (id,result)=>{
             result(null,res[0]);
         }
     });
-};
+},
 
-exports.specificUser = (id,result)=>{
+specificUser:(id,result)=>{
     const sql="call spspecificUser(?)";
-    connection.query(sql,[id],(err,res)=>{
+    db.query(sql,[id],(err,res)=>{
         if(err){
             result(err,null);
         }
@@ -49,5 +51,19 @@ exports.specificUser = (id,result)=>{
             result(null,res[0]);
         }
     });
-};
+},
+spuserById:(id,result)=>{
+    const sql=`CALL spgetById(?,@name,@contact);
+               SELECT @name AS name,@contact AS contact;`;
+    db.query(sql,[id],(err,res)=>{
+        if(err){
+            result(err,null);
+        }
+        else{
+            result(null,res)
+        }
+    })
+}
 
+};
+}

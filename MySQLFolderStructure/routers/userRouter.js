@@ -1,11 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/userController');
 
-router.post('/users', controller.addUser);
-router.delete('/delete/:id', controller.deleteUser);
-router.get('/getAllUsers', controller.getUsers);
-router.put('/updateRecord/:id', controller.updateUser);
-router.get('/getUser/:id',controller.specificUser);
+
+// infrastructure
+const db = require('../db/connection');
+
+// repository
+const userRepository = require('../repositories/userRepository')(db);
+
+// service
+const userService = require('../services/userService')(userRepository);
+ 
+// controller
+const userController = require('../controllers/userController')(userService);
+
+//routes
+router.post('/users', userController.addUser);
+router.delete('/delete/:id', userController.deleteUser);
+router.get('/getAllUsers', userController.getUsers);
+router.put('/updateRecord/:id', userController.updateUser);
+router.get('/getUser/:id',userController.specificUser);
+router.get('/getUserNameContact/:id',userController.spuserById);
 
 module.exports = router;

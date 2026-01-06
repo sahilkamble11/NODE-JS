@@ -1,6 +1,7 @@
-const userService = require('../services/userService');
+module.exports = function userController(userService){
 
-exports.addUser = (req, res) => {
+return{
+addUser : (req, res) => {
     const { name, contact } = req.body;
 
     userService.addUser(name, contact, (err, result) => {
@@ -12,9 +13,9 @@ exports.addUser = (req, res) => {
         });
         console.log("Data Inserted...");
     });
-};
+},
 
-exports.deleteUser = (req, res) => {
+deleteUser : (req, res) => {
     const id = req.params.id;
 
     userService.removeUser(id, (err, result) => {
@@ -23,18 +24,18 @@ exports.deleteUser = (req, res) => {
         res.json({ message: "Record Deleted successfully...!" });
         console.log("Data deleted...");
     });
-};
+},
 
-exports.getUsers = (req, res) => {
+getUsers: (req, res) => {
     userService.getAllUsers((err, result) => {
         if (err) return res.status(500).json(err);
 
         res.json(result);
         console.log("Records fetched...");
     });
-};
+},
 
-exports.updateUser = (req, res) => {
+updateUser : (req, res) => {
     const { name, contact } = req.body;
     const id = req.params.id;
 
@@ -44,9 +45,9 @@ exports.updateUser = (req, res) => {
         res.json({ message: "Record Updated Successfully...!" });
         console.log("Record updated...");
     });
-};
+},
 
-exports.specificUser = (req, res) => {
+specificUser : (req, res) => {
     const id = req.params.id;
 
     userService.oneUser(id, (err, result) => {
@@ -57,4 +58,17 @@ exports.specificUser = (req, res) => {
         res.json(result[0]);
         console.log("Record Displayed...");
     });
-};
+},
+spuserById : (req, res) => {
+    const id = req.params.id;
+
+    userService.spuserById(id, (err, result) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        res.json(result[1][0]);
+        console.log("User record Displayed...");
+    });
+}
+}}
