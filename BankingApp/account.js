@@ -5,6 +5,7 @@ var events=require("events"); //inbuilt module
 var Account=function(amount){
     var balance=amount;
 
+
     var emitter=new events.EventEmitter();
     //Inner function
     var getBalance=function(){
