@@ -2,6 +2,7 @@ import Employee from "./Employee.js";
 
 class SalesEmployee extends Employee{
     constructor(id,name,basicSalary,hra,tax,commission){
+        //Constructor chaining
         super(id,name,basicSalary,hra,tax);
         this.commission=commission;
     }
