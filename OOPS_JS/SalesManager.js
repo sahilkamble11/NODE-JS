@@ -7,13 +7,13 @@ class SalesManager extends SalesEmployee{
         super(id,name,basicSalary,hra,tax,commission);
         this.bonus=bonus;
     }
-    
+
 
     computePay(){
         return super.computePay()+this.bonus;
     }
 
-    doWrok(){
+    doWork(){
         console.log("SalesManager is doing his Work.")
     }
 
